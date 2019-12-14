@@ -137,23 +137,23 @@ index.html
 
 * Web socket, Redis를 사용하여 채널을 관리했다.
 
-  ![1576358409664](C:\Users\son\AppData\Roaming\Typora\typora-user-images\1576358409664.png)
+  ![1576358409664](./images/1576358409664.png)
 
 ### 3. 사이트 세부 기능과 이미지
 
 ####  NodeJs 
 
-![1576355235530](C:\Users\son\AppData\Roaming\Typora\typora-user-images\1576355235530.png)
+![1576355235530](./images/1576355235530.png)
 
-![1576355343871](C:\Users\son\AppData\Roaming\Typora\typora-user-images\1576355343871.png)
+![1576355343871](./images/1576355343871.png)
 
-![1576355308705](C:\Users\son\AppData\Roaming\Typora\typora-user-images\1576355308705.png)
+![1576355308705](./images/1576355308705.png)
 
 #### Django
 
-![1576356094843](C:\Users\son\AppData\Roaming\Typora\typora-user-images\1576356094843.png)
+![1576356094843](./images/1576356094843.png)
 
-![1576357585174](C:\Users\son\AppData\Roaming\Typora\typora-user-images\1576357585174.png)
+![1576357585174](./images/1576357585174.png)
 
 ### 4. 프로젝트를 마치며
 
