@@ -11,7 +11,7 @@
         </div>
         <div>
             <input type="text" id="test" placeholder="메시지를 입력해주세요..">
-            <button id="submit">전송</button>
+            <button id="submit" onclick="send()">전송</button>
         </div>
     </div>
     <script>
@@ -38,7 +38,7 @@
         });
 
         var button = document.getElementById('my_button');
-        button.onclick = function () {
+        send = function () {
             var message = document.getElementById('test').value
             document.getElementById('test').value = ''
             socket.emit('message', {

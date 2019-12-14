@@ -9,7 +9,7 @@ const io = socketIo.listen(server);
 
 app.use(express.static(`${__dirname}/static`));
 
-app.get('/', function(require, response) { 
+app.get('/', function(request, response) { 
     fs.readFile('./static/index.html', function (err, data) {
         if (err) {
             response.send(err)
