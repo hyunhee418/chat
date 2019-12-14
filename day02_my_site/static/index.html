@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Chat page</title>
+</head>
+<body>
+    <div class="container">
+        <div id="chat">
+        </div>
+        <div>
+            <input type="text" id="test" placeholder="메시지를 입력해주세요..">
+            <button id="submit">전송</button>
+        </div>
+    </div>
+    <script>
+        var socket = io.connect();
+        var roomName = prompt('방 이름은?', '');
+
+    
+        socket.emit('join', {
+        roomName: roomName
+        });
+
+        socket.on('join', () => {
+            var name = prompt('이름은?', '');
+            socket.emit('newUser', name);
+        })
+        
+        socket.on('message', function(data) {
+            console.log(data)
+            var message = document.createElement('div')
+            var chat = document.getElementById('chat')
+            var node = document.createTextNode(`${data.name} : ${data.message}`)
+            message.appendChild(node)
+            chat.appendChild(message)
+        });
+
+        var button = document.getElementById('my_button');
+        button.onclick = function () {
+            var message = document.getElementById('test').value
+            document.getElementById('test').value = ''
+            socket.emit('message', {
+                message: message
+            });
+        };
+
+    </script>
+</body>
+</html>
