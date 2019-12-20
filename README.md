@@ -11,7 +11,7 @@
 #### NodeJs
 
 * socket 통신을 이용하여 비동기적으로 연동할 수 있는 chatting 방을 구현했다.
-* URL에 접속 시 prompt로 방 이름을 입력하도록 하여 방 이름이 같은 User만 연결하도록 하였다.
+* URL에 접속 시 prompt로 방 이름을 입력하도록 하여 방 이름이 같은 user만 연결하도록 하였다.
 * 또한 접속자 이름을 받아 이름도 대화내용과 함께 보이도록 하였다.
 
 app.js
@@ -139,6 +139,7 @@ index.html
 
   ![1576358409664](./images/1576358409664.png)
   
+<<<<<<< HEAD
 * 필요 명령어
 
   `$ source venv/Scripts/activate`
@@ -164,6 +165,9 @@ index.html
   `$ python manage.py runserver`
 
 
+=======
+  
+>>>>>>> f76f55352445a767c09269814c11785988f3c1ac
 
 ### 3. 사이트 세부 기능과 이미지
 
