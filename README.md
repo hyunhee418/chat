@@ -2,9 +2,9 @@
 
 ### 1. 목표
 
-​		i. socket에 대하여 이해하기
-
-​		ii. 다양한 framework를 이용하여 chatroom 구현하기 
+		i. socket에 대하여 이해하기
+	
+		ii. 다양한 framework를 이용하여 chatroom 구현하기 
 
 ### 2. 핵심 기능
 
@@ -138,6 +138,8 @@ index.html
 * Web socket, Redis를 사용하여 채널을 관리했다.
 
   ![1576358409664](./images/1576358409664.png)
+  
+  
 
 ### 3. 사이트 세부 기능과 이미지
 
@@ -153,7 +155,7 @@ index.html
 
 ![1576356094843](./images/1576356094843.png)
 
-![1576357585174](./images/1576357585174.png)
+![1576357585174](./images/django_chat.png)
 
 ### 4. 프로젝트를 마치며
 
