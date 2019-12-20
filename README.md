@@ -139,7 +139,31 @@ index.html
 
   ![1576358409664](./images/1576358409664.png)
   
+* 필요 명령어
+
+  `$ source venv/Scripts/activate`
+
+  `$ pip install -r requirements`
+
+  `$ python -c 'import channels; print(channels.__version__)'` (버젼 확인)
+
+  `$ python manage.py migrate`
+
+  `$ docker run -p 6379:6379 -d redis:2.8`
+
+  ```
+  $ python manage.py shell
+  >>> import channels.layers
+  >>> channel_layer = channels.layers.get_channel_layer()
+  >>> from asgiref.sync import async_to_sync
+  >>> async_to_sync(channel_layer.send)('test_channel', {'type': 'hello'})
+  >>> async_to_sync(channel_layer.receive)('test_channel')
+  {'type': 'hello'}
+  ```
   
+  `$ python manage.py runserver`
+
+
 
 ### 3. 사이트 세부 기능과 이미지
 
