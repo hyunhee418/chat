@@ -139,7 +139,6 @@ index.html
 
   ![1576358409664](./images/1576358409664.png)
   
-<<<<<<< HEAD
 * 필요 명령어
 
   `$ source venv/Scripts/activate`
@@ -165,9 +164,6 @@ index.html
   `$ python manage.py runserver`
 
 
-=======
-  
->>>>>>> f76f55352445a767c09269814c11785988f3c1ac
 
 ### 3. 사이트 세부 기능과 이미지
 
