@@ -5,13 +5,18 @@
     <title>Chat Room</title>
 </head>
 <body>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
+    <div id="chat-log" cols="100" rows="20"></div><br/>
     <input id="chat-message-input" type="text" size="100"/><br/>
     <input id="chat-message-submit" type="button" value="Send"/>
 </body>
 <script>
-    var roomName = {{ room_name_json }};
 
+    localStorage.setItem('id', Date.now())
+    var id = localStorage.getItem('id')
+    console.log(id)
+
+    var roomName = {{ room_name_json }};
+    
     var chatSocket = new WebSocket(
         'ws://' + window.location.host +
         '/ws/chat/' + roomName + '/');
@@ -19,8 +24,13 @@
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        console.log(self.username);
-        document.querySelector('#chat-log').value += (message + '\n');
+        console.log(e);
+        var sender = JSON.parse(e.data).sender
+        console.log(JSON.parse(e.data).sender)
+        if (id == sender) {
+            document.querySelector('#chat-log').innerText += ('me' + ' : ' + message + '\n');
+        } else {
+        document.querySelector('#chat-log').innerText += (sender+' : ' + message + '\n');};
     };
 
     document.querySelector('#chat-message-input').focus();
@@ -31,13 +41,16 @@
     };
 
     document.querySelector('#chat-message-submit').onclick = function(e) {
+        isMe = true;
         var messageInputDom = document.querySelector('#chat-message-input');
         var message = messageInputDom.value;
         chatSocket.send(JSON.stringify({
-            'message': message
+            'message': message,
+            'id': id,
         }));
 
         messageInputDom.value = '';
+        isMe = false;
     };
 </script>
 </html>
