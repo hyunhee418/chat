@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- app.js에 socketIo.listen(sever))을 io에 넣어줌 
+    app.js에서 server를 listen하고 있기 때문에 socket.io.js를 데려올 수 있다.-->
     <script src="/socket.io/socket.io.js"></script>
     <title>Chat page</title>
 </head>
@@ -16,40 +18,42 @@
     </div>
     <script>
         // 접속
-        var socket = io.connect();
-        
+        const socket = io.connect();
+
         // 접속과 동시에 prompt 생성 후 roomName이라는 
-        var roomName = prompt('방 이름은?', '');
+        const roomName = prompt('방 이름은?', '');
 
         // 1. 입력한 roomName으로 join됨을 알리면서 roomName 보내기
         socket.emit('join', {
-        roomName: roomName
+           roomName: roomName
         });
 
         // 3. app에서 'join'이라니까 이름도 받자
-        socket.on('join', () => {
-            var name = prompt('이름은?', '');
+        socket.on('join', function () {
+            name = prompt('이름은?', '');
+            if (!name) {
+                name = '익명이'
+            }
             socket.emit('newUser', name); // 4. newUser 됨을 알리면서 name 보내기
         })
         
         // app.js에서 'message'라고 외치면 행동할꺼야
         // chat에다가 <div> 이름 : message </div> 넣을 테다
         socket.on('message', function(data) {
-            console.log(data)
-            var message = document.createElement('div')
-            var chat = document.getElementById('chat')
-            var node = document.createTextNode(`${data.name} : ${data.message}`)
+            const message = document.createElement('div')
+            const chat = document.getElementById('chat')
+            const node = document.createTextNode(`${data.name} : ${data.message}`)
             message.appendChild(node)
             chat.appendChild(message)
         });
 
         // send 함수 선언
-        send = function () {
+        const send = function () {
             // app.js에다가 'message'라고 외치면서 input#test.value를 보내겠어 
-            var message = document.getElementById('test').value
+            const message = document.getElementById('test').value
             document.getElementById('test').value = ''
             socket.emit('message', {
-                message: message
+                message: message,
             });
         };
 

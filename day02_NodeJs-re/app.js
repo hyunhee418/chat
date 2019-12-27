@@ -29,7 +29,7 @@ app.get('/', function(request, response) {
 io.sockets.on('connection', (socket) => {
 
     // 변수 선언
-    let roomName=null;
+    let roomName = null;
 
     // 2. 클라이언트 방에 배정하기 (index.html에서 'join'이라는 소리 듣고 행동하자!)
     socket.on('join', (data) => {
@@ -55,7 +55,7 @@ io.sockets.on('connection', (socket) => {
     // index.html에서 'disconnect'라고 외치면 행동하자
     socket.on('disconnect', function() {
         console.log(socket.name + '님이 나가셨습니다.')
-        io.sockets.in(roomName).emit('message', {type:'disconnet', name: 'SERVER', message: socket.name + ' 님이 나가셨습니다.'})
+        socket.broadcast.in(roomName).emit('message', {type: 'disconnet', name: 'SERVER', message: socket.name + ' 님이 나가셨습니다.'})
         // roomName 룸 내 모든 클라이언트 index.html에게 'message'라고 외치면서 나간 데이터를 송신하자
     });
 })
