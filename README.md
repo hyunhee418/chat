@@ -163,7 +163,9 @@ index.html
   
   `$ python manage.py runserver`
 
+* 도커 설치 필수!!!
 
+  
 
 ### 3. 사이트 세부 기능과 이미지
 
