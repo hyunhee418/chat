@@ -16,7 +16,7 @@ constantly==15.1.0
 cryptography==2.8
 daphne==2.4.0
 decorator==4.4.1
-Django==2.2.8
+Django==2.2.22
 django-extensions==2.2.5
 docker==4.1.0
 hiredis==1.0.1
